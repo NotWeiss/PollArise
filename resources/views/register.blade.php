@@ -2,7 +2,9 @@
 
 @section("auth-form")
 
-        <form class="pico form" action="">
+        <form class="pico form" action="{{ route('try.register') }}" method="POST">
+
+            @csrf
 
             <h2>Registrarse</h2>
 
@@ -10,7 +12,7 @@
                 
                 <input 
                     type="text"
-                    name="username"
+                    name="name"
                     placeholder="Username"
                     required>
 
@@ -26,7 +28,7 @@
                     placeholder="Password"
                     required>
 
-                    <input class = "tint-cyan adapt-obj text-bold"
+                <input class = "tint-cyan adapt-obj text-bold"
                     type = "submit"
                     name = "login"/>
 

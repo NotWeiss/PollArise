@@ -15,8 +15,8 @@ return new class extends Migration
 
         Schema::create('surveys', function (Blueprint $table) {
             $table->increments('surveyID');
-            $table->string('userEmail');
-            $table->foreign('userEmail')->references('email')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('userID');
+            $table->foreign('userID')->references('id')->on('users')->onDelete('cascade');
             $table->string('title', 255);
             $table->text('description', 2000);
         });

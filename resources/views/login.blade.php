@@ -2,7 +2,9 @@
 
 @section("auth-form")
 
-        <form class="pico form" action="">
+        <form class="pico form" action="{{ route('try.login') }}" method="POST">
+
+            @csrf
 
             <h2>Iniciar Sesión</h2>
 
@@ -10,8 +12,8 @@
 
                 <input 
                     type="text"
-                    name="email"
-                    placeholder="E-Mail"
+                    name="name"
+                    placeholder="Username"
                     required>
 
                 <input 
