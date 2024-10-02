@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Survey;
-use App\Models\Question;
 use Illuminate\Support\Facades\Auth;
 
 class SurveyController extends Controller
@@ -30,31 +29,26 @@ class SurveyController extends Controller
 
         return $this->arrive();
     }
-
-    ////////////////////////////////////////////////////////////////////////////////////////////
     
-    public function editSurvey()
+    public function editSurvey(Survey $survey)
     {
-        $url = url()->current();
-        $questions = Question::all();
-        $survey = Survey::find(collect(explode('/', $url))->last());
-        return view('edit-survey', ['questions' => $questions, 'survey' => $survey]);
+        $questions = $survey->questions;
+        $survey = Survey::with('questions')->find($survey->surveyID);
+        return view('edit-survey', compact('survey', 'questions'));
     }
 
-    public function createQuestion(Request $request)
+    public function update(Request $request, Survey $survey)
     {
-        $url = url()->current();
-        $survey = Survey::find(collect(explode('/', $url))->last());
-
         $data = $request->validate([
-            'prompt' => 'required',
-            'type' => 'required'
+            'title' => 'required',
+            'description' => 'required'
         ]);
 
-        Question::create($data);
-        
-        return $this->editSurvey();
+        $data['title'] = strip_tags($data['title']);
+        $data['description'] = strip_tags($data['description']);
+
+        $survey->update($data);
+        return redirect()->route('edit.survey', $survey);
     }
-
-
+    
 }

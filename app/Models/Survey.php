@@ -28,12 +28,12 @@ class Survey extends Model
         'description'
     ];
 
-    public function User()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function surveyQuestions()
+    public function questions()
     {
         return $this->hasMany(Question::class, 'surveyID');
     }

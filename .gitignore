@@ -1,21 +1,142 @@
-/.phpunit.cache
-/node_modules
-/public/build
-/public/hot
-/public/storage
-/storage/*.key
-/vendor
-.env
-.env.backup
-.env.production
-.phpactor.json
-.phpunit.result.cache
-Homestead.json
-Homestead.yaml
-auth.json
-npm-debug.log
-yarn-error.log
-/.fleet
-/.idea
-/.vscode
-/.zed
+#### Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+.history/
+*.vsix
+
+#### Operating System
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs*.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+#### Backup & Temp Files
+*.bak
+*.gho
+*.ori
+*.orig
+*.tmp
+
+#### Editor & IDE Specific
+# Vim
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+Session.vim
+Sessionx.vim
+.netrwhist
+tags
+[._]*.un~
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+.org-id-locations
+*_archive
+*_flymake.*
+/eshell/
+/elpa/
+/auto/
+flycheck_*.el
+/server/
+.projectile
+.dir-locals.el
+/network-security.data
+# Sublime Text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+Package Control.*
+# Notepad++
+*.bak
+# TextMate
+*.tmproj
+*.tmproject
+tmtags
+# Eclipse
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+.local.properties
+.settings/
+.externalToolBuilders/
+*.launch
+.pydevproject
+.cproject
+.autotools
+.buildpath
+.tern-project
+.texlipse
+.springBeans
+.recommenders/
+.apt_generated/
+# JetBrains (IntelliJ, PhpStorm, etc.)
+.idea/
+*.iws
+*.iml
+.idea_modules/
+cmake-build-*/
+# NetBeans
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+# Dreamweaver
+_notes
+configs/
+dwsync.xml
+*.mno
+
+node_modules/
+/vendor/

@@ -28,7 +28,8 @@
 <body class = "pico" data-theme = "light">
     
     <nav class = "navigation">
-        PollArise
+            <h1><a href="{{ route('home') }}">PollArise</a></h1>
+
     </nav>
 
     <div class="vessel pico grid">
