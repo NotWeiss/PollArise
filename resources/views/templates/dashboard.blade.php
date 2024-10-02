@@ -28,10 +28,10 @@
 <body class = "pico" data-theme = "light">
     
     <nav class = "navigation">
-        TEST
+        PollArise
     </nav>
 
-    <div class="vessel">
+    <div class="vessel pico grid">
 
         @yield("content")
 

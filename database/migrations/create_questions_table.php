@@ -17,7 +17,6 @@ return new class extends Migration
             $table->increments('questionID');
             $table->unsignedInteger('surveyID');
             $table->foreign('surveyID')->references('surveyID')->on('surveys')->onDelete('cascade');
-            $table->unsignedInteger('position');
             $table->text('prompt', 2000);
             $table->enum('type', ["text","country","radio_button","checkbox"]);
         });

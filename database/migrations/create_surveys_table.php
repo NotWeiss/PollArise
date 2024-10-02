@@ -19,6 +19,8 @@ return new class extends Migration
             $table->foreign('userID')->references('id')->on('users')->onDelete('cascade');
             $table->string('title', 255);
             $table->text('description', 2000);
+            $table->date('updated_at');
+            $table->date('created_at');
         });
 
         Schema::enableForeignKeyConstraints();

@@ -20,10 +20,22 @@ class Survey extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'surveyID';
+    
     protected $fillable = [
         'userID',
         'title',
         'description'
     ];
+
+    public function User()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function surveyQuestions()
+    {
+        return $this->hasMany(Question::class, 'surveyID');
+    }
 
 }

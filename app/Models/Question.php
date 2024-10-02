@@ -19,38 +19,14 @@ class Question extends Model
 {
     use HasFactory;
 
-    private string $question;
-    private string $type;
-    private ?array $answers = null;
+    protected $fillable = [
+        'question',
+        'type'
+    ];
 
-    /**
-    * Constructs a Class Instance 
-    */
-    public function __construct(string $question, string $type, 
-                                ?array $answers = null)
+    public function Survey()
     {
-        $this->question = $question;
-        $this->type = $type;
-        $this->answers = $answers;
-    }
-
-    /**
-    * Constructs a Class Instance 
-    */
-    public function getComponents()
-    {
-        return [$this->question, $this->type, $this->answers];
-    }
-
-    /**
-    * Constructs a Class Instance 
-    */
-    public function updateQuestion(?string $newQuestion, ?string $newType, 
-                                   ?array $newAnswers)
-    {
-        $this->question = $newQuestion ?? $this->question;
-        $this->type = $newType ?? $this->type;
-        $this->answers = $newAnswers ?? $this->answers;
+        return $this->belongsTo(Survey::class);
     }
 
 }

@@ -2,7 +2,33 @@
 
 @section('content')
 
-    <form action="{{ route('create.survey') }}">
+        @foreach ($surveys as $survey)
+
+            <form action="{{ route('edit.survey', ['survey' => $survey->surveyID]) }}" method="POST">
+
+                @csrf
+
+                <button class="survey">
+                
+                    <div style="background-color: whitesmoke">
+                        
+                        <img src="">
+            
+                    </div>
+            
+                    <div class="down">
+                        
+                        <h3>{{$survey['title']}}</h3>
+            
+                    </div>
+                    
+                </button>
+
+            </form>
+            
+        @endforeach
+
+        <form action="{{ route('create.survey') }}" method="POST">
 
         @csrf
 
@@ -20,6 +46,8 @@
                     type="text" 
                     name="title"
                     placeholder="New Survey"
+                    onclick="doSomething()"
+                    onkeyup="event.preventDefault()"
                     required>
     
             </div>

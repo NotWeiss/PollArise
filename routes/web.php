@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\SurveyController;
 use App\Models\Survey;
 use Illuminate\Support\Facades\Route;
@@ -18,3 +19,5 @@ Route::post('/register', [AuthController::class, "tryRegister"])->name('try.regi
 
 // POST METHODs DASHBOARD
 Route::post('/create-survey', [SurveyController::class, "createSurvey"])->name('create.survey');
+Route::post('/edit-survey/{survey}', [SurveyController::class, "editSurvey"])->name('edit.survey');
+Route::post('/create-question', [SurveyController::class, "createQuestion"])->name('create.question');
