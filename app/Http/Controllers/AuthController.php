@@ -19,7 +19,8 @@ class AuthController extends Controller
     public function tryLogin(Request $request)
     {
     
-        if(Auth::attempt(['name' => $request['name'], 'password' => $request['password']]))
+        if(Auth::attempt(['name' => $request['name'], 
+                'password' => $request['password']]))
         {
             $request->session()->regenerate();
             return redirect()->route('home');

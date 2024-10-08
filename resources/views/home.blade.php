@@ -4,7 +4,10 @@
 
         @foreach ($surveys as $survey)
 
-            <form action="{{ route('edit.survey', ['survey' => $survey->surveyID]) }}" method="POST">
+            <form 
+                action="{{ route('survey.open', ['survey' => 
+                           $survey->surveyID]) }}" 
+                method="POST">
 
                 @csrf
 
@@ -28,7 +31,7 @@
             
         @endforeach
 
-        <form action="{{ route('create.survey') }}" method="POST">
+        <form action="{{ route('survey.create') }}" method="POST">
 
         @csrf
 

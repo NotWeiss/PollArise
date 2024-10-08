@@ -20,28 +20,23 @@ class Question extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'questionID';
+    public $timestamps = false;
+
     protected $fillable = [
         'surveyID',
         'prompt',
         'type'
     ];
 
-    protected $primaryKey = 'questionID';  // Set the primary key explicitly
-    public $timestamps = false;  // If you're not using created_at/updated_at
-
     public function survey()
     {
-        return $this->belongsTo(Survey::class, 'surveyID');  // Specify foreign key
+        return $this->belongsTo(Survey::class, 'surveyID');
     }
 
     public function choices()
     {
         return $this->hasMany(Choice::class, 'questionID');
-    }
-
-    public function getRouteKeyName()
-    {
-        return 'questionID';
     }
 }
 

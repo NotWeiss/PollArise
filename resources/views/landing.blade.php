@@ -10,19 +10,27 @@
 
         <div class = "side" id = "left" style = "flex: 66%;">
 
-            <img class = "background" src = "{{ asset('assets/wallpaper.jpg') }}">
+            <img 
+                class = "background" 
+                src = "{{ asset('assets/wallpaper.jpg') }}">
 
         </div>
 
-        <div class = "side" id= "right" style = "flex: 33%; background-color: rgb(235, 224, 213)">
+        <div 
+            class = "side" id= "right" 
+            style = "flex: 33%; background-color: rgb(235, 224, 213)">
 
                 <nav class = "nav-hor">
 
-                        <a class = "nav-element" href="{{ route('login') }}">
+                        <a 
+                            class = "nav-element" 
+                            href="{{ route('login') }}">
                             <h3>Iniciar Sesión</h3>
                         </a> 
 
-                        <a class = "nav-element" href="{{ route('register') }}">
+                        <a 
+                            class = "nav-element" 
+                            href="{{ route('register') }}">
                             <h3>Registrarse</h3>
                         </a> 
 
@@ -37,7 +45,9 @@
 
                 </div>
 
-                <form class="pico reduce-margin-bottom" action = ""> <!--TODO: ADD ACTION SEARCH SURVEY-->
+                <form 
+                    class="pico reduce-margin-bottom" 
+                    action = ""> <!--TODO: ADD ACTION SEARCH SURVEY-->
 
                     <fieldset>
 
@@ -57,13 +67,19 @@
 
                 <div class = "controls">
 
-                    <p style = "margin-right: 10px">¿Te Gustaría Crear Una Encuesta?</p>
+                    <p style = "margin-right: 10px">
+                        ¿Te Gustaría Crear Una Encuesta?
+                    </p>
+
                     <a href="{{ route('register') }}">¡Registrate!</a>
 
                 </div>
                 <div class = "controls">
 
-                    <p style = "margin-right: 10px">¿Ya Tienes Una Cuenta?</p>
+                    <p style = "margin-right: 10px">
+                        ¿Ya Tienes Una Cuenta?
+                    </p>
+                    
                     <a href="{{ route('login') }}">¡Inicia Sesión!</a>
 
                 </div>

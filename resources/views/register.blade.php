@@ -2,7 +2,10 @@
 
 @section("auth-form")
 
-        <form class="pico form" action="{{ route('try.register') }}" method="POST">
+        <form 
+            class="pico form" 
+            action="{{ route('try.register') }}" 
+            method="POST">
 
             @csrf
 
