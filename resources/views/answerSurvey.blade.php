@@ -2,51 +2,77 @@
 
 @section('content')
 
+    <!-- Prints all questions -->
     @foreach($survey->questions as $question)
 
-        <form action="">
+        <form action="" method="POST">
 
-            <label for="">
+            @csrf
+
+            <label for="question-{{ $question->id }}">
+
                 {{ $question->title }}
+
             </label>
             
-            @if ($question->type === 'text')
+            @switch($question->type)
 
-                <input type="text">
+                @case('text')
 
-            @elseif ($question->type === 'country')
+                    <input type="text" name="question-{{ $question->id }}" id="question-{{ $question->id }}">
 
-                <select name="" id=""></select>
+                    @break
 
-            @elseif ($question->type === 'radio_button')
+                @case('country')
 
-                @foreach ($question->choices as $choice)
+                    <select name="question-{{ $question->id }}" id="question-{{ $question->id }}">
 
-                    <input type="radio" name="option" id="">
+                        @foreach ($countries as $country)
 
-                    @if ($choice->is_other === 1)
+                            <option value="{{ $country->countryID }}">{{ $country->name }}</option>
 
-                        <input type="text">
+                        @endforeach
                         
-                    @endif
+                    </select>
 
-                @endforeach
+                    @break
 
-            @elseif ($question->type === 'checkBox')
+                @case('radio-button')
 
-                @foreach ($question->choices as $choice)
+                    @foreach ($question->choices as $choice)
 
-                    <input type="radio" name="option" id="">
+                        <input type="radio" name="question-{{ $question->id }}" id="choice-{{ $choice->id }}" value="{{ $choice->id }}">
 
-                    @if ($choice->is_other === 1)
+                        <label for="choice-{{ $choice->id }}">{{ $choice->label }}</label>
 
-                        <input type="text">
-                        
-                    @endif
+                        @if($choice->is_other === 1)
 
-                @endforeach
+                            <input type="text" name="other-{{ $choice->id }}" placeholder="Other">
 
-            @endif
+                        @endif
+
+                    @endforeach
+
+                    @break
+
+                @case('checkBox')
+                    @foreach ($question->choices as $choice)
+
+                        <input type="checkbox" name="question-{{ $question->id }}[]" id="choice-{{ $choice->id }}" value="{{ $choice->id }}">
+
+                        <label for="choice-{{ $choice->id }}">{{ $choice->label }}</label>
+
+                        @if($choice->is_other === 1)
+
+                            <input type="text" name="other-{{ $choice->id }}" placeholder="Other">
+
+                        @endif
+
+                    @endforeach
+
+                    @break
+                    
+            @endswitch
 
         </form>
 
