@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Country extends Model
 {
     use HasFactory;
+
+    protected $primaryKey = 'countryID';
+
+    public function answer()
+    {
+        return $this->belongsTo(Answer::class);
+    }
 }
